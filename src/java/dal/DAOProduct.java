@@ -246,20 +246,19 @@ public class DAOProduct extends DBConnect {
             }
             sql += ")";
         }
-        if ((minPrice != null && maxPrice != null) && (minPrice != "" && maxPrice != "")) {
+        if ((minPrice != null && maxPrice != null) && (!minPrice.equals("") && !maxPrice.equals(""))) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) >= "
                     + minPrice + " and (P.list_price - (P.list_price * P.discount/100)) <= " + maxPrice + " )";
-        } else if (minPrice != null && minPrice != "") {
+        } else if (minPrice != null && !minPrice.equals("")) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) >= " + minPrice + ")";
-        } else if (maxPrice != null && maxPrice != "") {
+        } else if (maxPrice != null && !maxPrice.equals("")) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) <= " + maxPrice + ")";
         }
-
-        if (discount != null && Discount != "") {
+        if (discount != null && !discount.equals("")) {
             sql += " and P.discount > " + discount;
         }
         
-        if (order != null && Order != "") {
+        if (order != null && !order.equals("")) {
             sql += " order by P.list_price " + order;
         }
         try {
@@ -324,20 +323,20 @@ public class DAOProduct extends DBConnect {
             }
             sql += ")";
         }
-        if ((minPrice != null && maxPrice != null) && (minPrice != "" && maxPrice != "")) {
+        if ((minPrice != null && maxPrice != null) && (!minPrice.equals("") && !maxPrice.equals(""))) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) >= "
                     + minPrice + " and (P.list_price - (P.list_price * P.discount/100)) <= " + maxPrice + " )";
-        } else if (minPrice != null && minPrice != "") {
+        } else if (minPrice != null && !minPrice.equals("")) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) >= " + minPrice + ")";
-        } else if (maxPrice != null && maxPrice != "") {
+        } else if (maxPrice != null && !maxPrice.equals("")) {
             sql += " and ((P.list_price - (P.list_price * P.discount/100)) <= " + maxPrice + ")";
         }
 
-        if (discount != null && discount != "") {
+        if (discount != null && !discount.equals("")) {
             sql += " and P.discount > " + discount;
         }
         
-        if (order != null && order != "") {
+        if (order != null && !order.equals("")) {
             sql += " order by P.list_price " + order;
         }
         return sql;
@@ -367,7 +366,7 @@ public class DAOProduct extends DBConnect {
             st.setString(7, pro.getProduct_img());
             st.setTimestamp(8, Timestamp.valueOf(getFormatDate()));
             st.setString(9, pro.getProduct_desc());
-            
+            st.setInt(10, pro.getQuantity());
             st.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -390,7 +389,7 @@ public class DAOProduct extends DBConnect {
                 + "      ,[product_img] = ?\n"
                 + "      ,[date_added] = ?\n"
                 + "      ,[product_desc] = ?\n"
-                + "      ,[soluong] = ?\n"
+                + "      ,[quantity] = ?\n"
                 + " WHERE [product_id] = ?";
         int n = -1;
         try {
