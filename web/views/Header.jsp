@@ -3,13 +3,12 @@
     Created on : 13 Oct, 2023, 11:31:22 AM
     Author     : HP
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
     <%@page import="DAL.*" %>
     <%@page import="entity.*" %>
     <%@page import="java.util.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
