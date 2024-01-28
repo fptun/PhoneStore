@@ -12,7 +12,8 @@
 <%@page import="Models.*" %>
 <%@page import="java.util.*" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 
     <head>
         <meta charset="UTF-8">
