@@ -3,16 +3,15 @@
     Created on : 31 Oct, 2023, 8:05:34 AM
     Author     : HP
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="java.text.Normalizer" %>
     <%@page import="java.util.regex.Pattern" %>
     <%@page import="DAL.*" %>
     <%@page import="Models.*" %>
     <%@page import="java.util.*" %>
-    <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin</title>
